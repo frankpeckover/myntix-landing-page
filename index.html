@@ -231,7 +231,10 @@
     <main id="main-content">
       <section class="hero">
         <div class="hero-copy-block">
-          <h1>Start <span class="accent-word">minting</span> the behaviours you want to see</h1>
+          <h1>
+            Start <span class="accent-word">minting</span>
+            <span class="hero-rotator" aria-live="polite" data-rotating-text>behaviours</span>
+          </h1>
           <p class="hero-copy">
             Give staff a simple way to recognise positive behaviour, track rewards, and keep students moving in the right direction.
           </p>
@@ -297,8 +300,10 @@
       <section class="community-band what-band" id="why" aria-label="What is Myntix">
         <div class="what-panel">
           <div class="what-copy">
-            <p class="eyebrow">What is Myntix?</p>
-            <h2>Simply, a digital ledger for school rewards</h2>
+            <div class="ledger-print" aria-label="What is Myntix? Simply, a digital ledger for school rewards">
+              <p class="eyebrow">What is Myntix?</p>
+              <h2><span>Simply, a digital ledger for school rewards</span></h2>
+            </div>
           </div>
           <div class="what-copy secondary">
             <h3>Built for behaviour, progress, and a little fun</h3>
@@ -461,11 +466,10 @@
       <section class="cta-section" id="contact">
         <div class="cta-copy">
           <p class="eyebrow">Book a walkthrough</p>
-          <h2>See how Myntix strengthens your reward program</h2>
+          <h2>Ready to explore?</h2>
           <p>
             Tell us how your school handles rewards today. We will show how Myntix could work in your setting and where it can reduce admin, improve consistency, and make recognition easier to sustain.
           </p>
-          <p class="trust-note">Myntix is an internal school reward currency for behaviour programs, not real-money finance.</p>
         </div>
         <form class="walkthrough-form" action="/walkthrough-request" method="post">
           <label class="form-honeypot" aria-hidden="true">
@@ -572,6 +576,8 @@
       </div>
     </footer>
     <script src="assets/reveal.js" defer></script>
+    <script src="assets/header-scroll.js" defer></script>
+    <script src="assets/hero-rotator.js" defer></script>
     <script src="assets/login-picker.js" defer></script>
   </body>
 </html>
