@@ -5,7 +5,7 @@
   );
   var ledgerPrintItems = document.querySelectorAll(".ledger-print");
   var ledgers = document.querySelectorAll(".visual-ledger[data-progress]");
-  var featureHeadings = document.querySelectorAll(".feature-copy h3");
+  var featureHeadings = document.querySelectorAll(".feature-copy .eyebrow, .feature-copy h3");
 
   featureHeadings.forEach(function (heading) {
     if (heading.querySelector(".written-heading-text")) {
@@ -13,75 +13,17 @@
     }
 
     var text = heading.textContent.trim();
-    var ghost = document.createElement("span");
-    var live = document.createElement("span");
     var typedText = document.createElement("span");
-    var cursor = document.createElement("span");
 
-    heading.dataset.writtenText = text;
     heading.setAttribute("aria-label", text);
 
-    ghost.className = "written-heading-ghost";
-    ghost.setAttribute("aria-hidden", "true");
-    ghost.textContent = text;
-
-    live.className = "written-heading-live";
-    live.setAttribute("aria-hidden", "true");
-
     typedText.className = "written-heading-text";
-    typedText.textContent = reduceMotion ? text : "";
-
-    cursor.className = "written-heading-cursor";
-    cursor.setAttribute("aria-hidden", "true");
-
-    live.appendChild(typedText);
-    live.appendChild(cursor);
+    typedText.setAttribute("aria-hidden", "true");
+    typedText.textContent = text;
 
     heading.textContent = "";
-    heading.appendChild(ghost);
-    heading.appendChild(live);
+    heading.appendChild(typedText);
   });
-
-  function writeFeatureHeading(row) {
-    var heading = row.querySelector(".feature-copy h3");
-    var textElement = heading ? heading.querySelector(".written-heading-text") : null;
-
-    if (!heading || !textElement || heading.dataset.written === "true") {
-      return;
-    }
-
-    heading.dataset.written = "true";
-
-    if (reduceMotion) {
-      textElement.textContent = heading.dataset.writtenText || "";
-      return;
-    }
-
-    var text = heading.dataset.writtenText || "";
-    var character = 0;
-    var lastTime = null;
-    var speed = 24;
-
-    function tick(timestamp) {
-      if (!lastTime) {
-        lastTime = timestamp;
-      }
-
-      if (timestamp - lastTime >= speed) {
-        character += 1;
-        textElement.textContent = text.slice(0, character);
-        lastTime = timestamp;
-      }
-
-      if (character < text.length) {
-        window.requestAnimationFrame(tick);
-      } else {
-        heading.classList.add("is-written");
-      }
-    }
-
-    window.requestAnimationFrame(tick);
-  }
 
   function formatBalance(value, suffix) {
     return Math.round(value).toLocaleString() + suffix;
@@ -169,9 +111,6 @@
   if (reduceMotion || !("IntersectionObserver" in window)) {
     revealItems.forEach(function (item) {
       item.classList.add("is-visible");
-      if (item.classList.contains("feature-row")) {
-        writeFeatureHeading(item);
-      }
     });
     ledgerPrintItems.forEach(function (item) {
       item.classList.add("is-visible");
@@ -185,9 +124,6 @@
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
-          if (entry.target.classList.contains("feature-row")) {
-            writeFeatureHeading(entry.target);
-          }
           entry.target.querySelectorAll(".visual-ledger[data-progress]").forEach(animateLedger);
           observer.unobserve(entry.target);
         }

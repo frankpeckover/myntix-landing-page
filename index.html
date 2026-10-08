@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
       rel="stylesheet"
     >
     <link rel="icon" href="assets/myntix-mark.png" type="image/png">
@@ -287,7 +287,7 @@
             </g>
             <g class="mint-plus" filter="url(#mint-shadow)">
               <circle cx="192" cy="314" r="54" fill="url(#mint-credit)" />
-              <text x="192" y="327" text-anchor="middle" fill="#183f3d" font-size="34" font-weight="900" font-family="Lato, Arial, sans-serif">+1</text>
+              <text x="192" y="327" text-anchor="middle" fill="#183f3d" font-size="34" font-weight="900" font-family="Inter, Arial, sans-serif">+1</text>
             </g>
             <g class="mint-token" filter="url(#mint-shadow)">
               <circle cx="572" cy="122" r="46" fill="url(#mint-deep)" />
@@ -316,6 +316,9 @@
       </section>
 
       <section class="feature-section" id="features">
+        <div class="section-heading feature-heading">
+          <h1 class="eyebrow">Why Myntix?</h1>
+        </div>
         <div class="feature-flow" aria-label="Myntix major platform strengths">
           <article class="feature-row">
             <div class="feature-copy">
@@ -386,18 +389,92 @@
               <h3>Simple, fast workflow</h3>
               <p>Teachers are busy, so Myntix is designed to stay out of the way. Timetables help surface the students in front of each teacher, making it quick to award credits, add a reason, and recognise the moment.</p>
             </div>
-            <figure class="feature-visual action-visual">
-              <div class="credit-demo" aria-hidden="true">
-                <div class="credit-demo-card">
-                  <span class="credit-demo-button">
-                    <span class="credit-button-icon">+</span>
-                    <span>Award credit</span>
-                  </span>
-                  <span class="credit-pop">+1</span>
-                  <span class="credit-ripple"></span>
+            <div class="feature-visual action-visual">
+              <div class="credit-demo" data-credit-demo>
+                <p class="credit-demo-kicker">Interactive sample · Teacher dashboard</p>
+                <div data-demo-dashboard>
+                  <div class="credit-demo-student">
+                    <div class="credit-demo-student-heading">
+                      <span class="student-avatar" aria-hidden="true">A</span>
+                      <div>
+                        <strong>Alex</strong>
+                        <small>@alex</small>
+                      </div>
+                      <span class="credit-demo-trend" data-demo-trend aria-label="No recent change">0</span>
+                    </div>
+                    <div class="credit-demo-balance">
+                      <output data-demo-balance aria-live="polite">8</output>
+                      <span>credits</span>
+                      <span class="credit-pop" data-demo-pop aria-hidden="true">+1</span>
+                    </div>
+                    <div class="credit-demo-quick-actions">
+                      <button type="button" data-demo-quick-add aria-label="Quick add 1 credit to Alex">+1</button>
+                      <button type="button" data-demo-quick-take aria-label="Quick take 1 credit from Alex">-1</button>
+                    </div>
+                    <button class="credit-demo-adjust-trigger" type="button" data-demo-open>
+                      Adjust credits
+                    </button>
+                  </div>
+                  <div class="credit-demo-goal">
+                    <div class="credit-demo-goal-label">
+                      <span>Savings goal · Leadership lunch</span>
+                      <output data-demo-goal-count>8 of 10 credits</output>
+                    </div>
+                    <div class="credit-demo-track" role="progressbar" aria-label="Alex's savings goal" aria-valuemin="0" aria-valuemax="10" aria-valuenow="8" data-demo-progress>
+                      <span data-demo-fill></span>
+                    </div>
+                  </div>
+                  <p class="credit-demo-status" data-demo-status aria-live="polite">Try a quick action or adjust Alex's credits.</p>
+                  <button class="credit-demo-reset" type="button" data-demo-reset hidden>Reset demo</button>
+                </div>
+                <div class="credit-demo-adjustment" data-demo-adjustment hidden>
+                  <div class="credit-demo-adjustment-heading">
+                    <div>
+                      <strong>Adjust credits</strong>
+                      <small>Alex · <span data-demo-adjust-balance>8</span> credits</small>
+                    </div>
+                    <button type="button" data-demo-close aria-label="Close credit adjustment">×</button>
+                  </div>
+                  <div class="credit-demo-adjustment-fields">
+                    <div>
+                      <span class="credit-demo-field-label">Action</span>
+                      <div class="credit-demo-direction" role="group" aria-label="Credit action">
+                        <button type="button" data-demo-direction="add" aria-pressed="true">+ Add</button>
+                        <button type="button" data-demo-direction="take" aria-pressed="false">- Take</button>
+                      </div>
+                    </div>
+                    <div>
+                      <span class="credit-demo-field-label">Amount (credits)</span>
+                      <div class="credit-demo-amounts" role="group" aria-label="Credit amount">
+                        <button type="button" data-demo-amount="1" aria-pressed="false">1</button>
+                        <button type="button" data-demo-amount="5" aria-pressed="false">5</button>
+                        <button type="button" data-demo-amount="10" aria-pressed="false">10</button>
+                        <button type="button" data-demo-amount="25" aria-pressed="false">25</button>
+                        <button type="button" data-demo-amount="50" aria-pressed="false">50</button>
+                      </div>
+                      <input class="credit-demo-custom-amount" type="number" min="1" max="999" step="1" placeholder="Custom amount" aria-label="Custom credit amount" data-demo-custom-amount>
+                    </div>
+                    <label class="credit-demo-reason">
+                      <span>Preset reason</span>
+                      <select data-demo-reason>
+                        <option value="">Choose a preset</option>
+                        <option>Great effort</option>
+                        <option>Helping others</option>
+                        <option>Homework complete</option>
+                        <option>Positive participation</option>
+                        <option>Late work</option>
+                        <option>Class disruption</option>
+                      </select>
+                    </label>
+                    <label class="credit-demo-reason">
+                      <span>Custom reason (optional)</span>
+                      <input type="text" maxlength="250" placeholder="Type a custom reason" data-demo-custom-reason>
+                    </label>
+                  </div>
+                  <button class="credit-demo-submit" type="button" data-demo-submit disabled>Add credits</button>
                 </div>
               </div>
-            </figure>
+            </div>
           </article>
           <article class="feature-row">
             <div class="feature-copy">
@@ -489,32 +566,9 @@
               <span>Organisation name</span>
               <input name="school" type="text" autocomplete="organization" required>
             </label>
-            <label>
-              <span>Role</span>
-              <input name="role" type="text" autocomplete="organization-title" placeholder="Deputy, teacher, IT, wellbeing...">
-            </label>
-            <label>
-              <span>Approx. students</span>
-              <select name="schoolSize">
-                <option value="">Select a range</option>
-                <option>Under 300</option>
-                <option>300-800</option>
-                <option>800-1500</option>
-                <option>1500+</option>
-              </select>
-            </label>
-            <label>
-              <span>Most interested in</span>
-              <select name="interest">
-                <option>Behaviour credits</option>
-                <option>Student wallets</option>
-                <option>Reward shop</option>
-                <option>Analytics and audit history</option>
-              </select>
-            </label>
           </div>
           <label class="form-message">
-            <span>Leave a message</span>
+            <span>Leave a message (optional)</span>
             <textarea name="message" rows="5" placeholder="Tell us what you use now and what you want to improve."></textarea>
           </label>
           <div class="form-footer">
@@ -576,6 +630,7 @@
       </div>
     </footer>
     <script src="assets/reveal.js" defer></script>
+    <script src="assets/credit-demo.js" defer></script>
     <script src="assets/header-scroll.js" defer></script>
     <script src="assets/hero-rotator.js" defer></script>
     <script src="assets/login-picker.js" defer></script>

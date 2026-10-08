@@ -172,9 +172,6 @@ function normaliseSubmission(body) {
     name: clean(body.name),
     email: clean(body.email).toLowerCase(),
     organisation: clean(body.school),
-    role: clean(body.role),
-    schoolSize: clean(body.schoolSize),
-    interest: clean(body.interest),
     message: clean(body.message, 1600),
     website: clean(body.website),
   };
@@ -203,9 +200,6 @@ function renderWalkthroughEmail(submission) {
     ['Name', submission.name],
     ['Email', submission.email],
     ['Organisation', submission.organisation],
-    ['Role', submission.role || 'Not supplied'],
-    ['Approx. students', submission.schoolSize || 'Not supplied'],
-    ['Most interested in', submission.interest || 'Not supplied'],
     ['Message', submission.message || 'Not supplied'],
   ];
 
@@ -235,9 +229,6 @@ function renderWalkthroughText(submission) {
     `Name: ${submission.name}`,
     `Email: ${submission.email}`,
     `Organisation: ${submission.organisation}`,
-    `Role: ${submission.role || 'Not supplied'}`,
-    `Approx. students: ${submission.schoolSize || 'Not supplied'}`,
-    `Most interested in: ${submission.interest || 'Not supplied'}`,
     `Message: ${submission.message || 'Not supplied'}`,
   ].join('\n');
 }
