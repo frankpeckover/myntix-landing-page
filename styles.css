@@ -1817,6 +1817,67 @@ button {
   margin: 0.75rem 0 0;
 }
 
+.pricing-section {
+  padding: clamp(44px, 6vw, 72px) clamp(20px, 5vw, 72px);
+  background: var(--brand-dark);
+  color: #f7fffb;
+}
+
+.pricing-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+  gap: clamp(28px, 6vw, 88px);
+  align-items: center;
+  width: min(100%, var(--page-wide));
+  margin: 0 auto;
+}
+
+.pricing-copy .eyebrow {
+  color: var(--highlight);
+}
+
+.pricing-copy h2 {
+  max-width: 14ch;
+  margin-bottom: 0;
+  color: inherit;
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
+  line-height: 1.08;
+}
+
+.pricing-details p {
+  max-width: 32rem;
+  margin: 0 0 16px;
+  color: rgba(247, 255, 251, 0.86);
+  line-height: 1.65;
+}
+
+.pricing-details a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--highlight);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 160ms ease;
+}
+
+.pricing-details a:hover,
+.pricing-details a:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+.pricing-details svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .cta-section {
   display: grid;
   grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr);
@@ -2226,6 +2287,18 @@ button {
 }
 
 @media (max-width: 660px) {
+  .pricing-inner {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    text-align: center;
+  }
+
+  .pricing-copy h2,
+  .pricing-details p {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
   :root {
     --header-offset: 66px;
   }
